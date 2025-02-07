@@ -3,7 +3,7 @@ Set
 i /1*13/
 alias (i,j);
 Variable z;
-Positive Variable x(i,j);
+Positive Variable w(i,j);
 Table
 c(i,j)
     1       2       3       4       5       6       7       8       9       10      11      12      13
@@ -39,7 +39,7 @@ o(i) /
 12  0
 13  0
  /
-d(j) /
+b(j) /
 1   5
 2   8
 3   8 
@@ -56,8 +56,8 @@ d(j) /
  / ;
 Equations
 obj,r1,r2;
-obj.. z =E= sum((i,j),(2*c(i,j)*x(i,j)+x(i,j)*30));
-r1(i).. sum(j,x(i,j))=L=o(i);
-r2(j).. sum(i,x(i,j))=G=d(j);
+obj.. z =E= sum((i,j),(2*c(i,j)*w(i,j)+w(i,j)*30));
+r1(i).. sum(j,w(i,j))=L=o(i);
+r2(j).. sum(i,w(i,j))=G=b(j);
 model Entire_hectares_allocation /all/;
 solve Entire_hectares_allocation using MIP min z;
